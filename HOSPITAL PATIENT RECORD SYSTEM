@@ -1,0 +1,80 @@
+#include <stdio.h>
+
+struct Patient {
+    int op_number;
+    char name[50];
+    char disease[50];
+    char doctor[50];
+};
+
+int main() {
+    struct Patient p[100];
+    int n, i;
+
+    printf("HOSPITAL PATIENT RECORD SYSTEM\n");
+    printf("------------------------------\n");
+
+    printf("Enter number of patients: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++) {
+        printf("\nEnter details of Patient %d\n", i + 1);
+
+        printf("OP Number: ");
+        scanf("%d", &p[i].op_number);
+
+        printf("Name: ");
+        scanf(" %[^\n]", p[i].name);
+
+        printf("Disease: ");
+        scanf(" %[^\n]", p[i].disease);
+
+        printf("Doctor: ");
+        scanf(" %[^\n]", p[i].doctor);
+    }
+
+    printf("\n\nPATIENT RECORDS\n");
+    printf("------------------------------------------------------------\n");
+    printf("%-10s %-20s %-20s %-20s\n",
+           "OP No.", "Name", "Disease", "Doctor");
+    printf("------------------------------------------------------------\n");
+
+    for (i = 0; i < n; i++) {
+        printf("%-10d %-20s %-20s %-20s\n",
+               p[i].op_number,
+               p[i].name,
+               p[i].disease,
+               p[i].doctor);
+    }
+
+    printf("------------------------------------------------------------\n");
+
+    return 0;
+}
+
+
+OUTPUT
+HOSPITAL PATIENT RECORD SYSTEM
+------------------------------
+Enter number of patients: 2
+
+Enter details of Patient 1
+OP Number: 101
+Name: Pranav
+Disease: Fever
+Doctor: Dr Kumar
+
+Enter details of Patient 2
+OP Number: 102
+Name: Arun
+Disease: Cold
+Doctor: Dr Ravi
+
+
+PATIENT RECORDS
+------------------------------------------------------------
+OP No.     Name                 Disease              Doctor
+------------------------------------------------------------
+101        Pranav               Fever                Dr Kumar
+102        Arun                 Cold                 Dr Ravi
+-------------------------------------------
